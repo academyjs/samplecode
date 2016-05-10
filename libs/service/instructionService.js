@@ -70,9 +70,48 @@ function saveInstructionSet(instructionSet) {
     return response;
 }
 
+/**
+ * Deletes an Instruction Set
+ * @param   {string} id The id of the Instruction Set to delete
+ * @returns {object} Response object indicating if the deletion was successful
+ */
+function deleteInstructionSet(id) {
+    var response = {};
+    response.success = true;
+
+    store.deleteInstructionSet(id);
+
+    return response;
+}
+
+/**
+ * Updates an existing Instruction Set
+ * @param   {object} instructionSet The Instruction Set to update
+ * @returns {object} Response object indicating id the update was successful
+ */
+function updateInstructionSet(instructionSet) {
+
+    var response = {};
+    response.errors = [];
+    response.success = true;
+
+    var validationResponse = instructionSetValidator.validate(instructionSet);
+
+    if (!validationResponse.success) {
+        response.errors = response.errors.concat(validationResponse.errors);
+        response.success = false;
+    } else {
+        store.updateInstructionSet(instructionSet);
+    }
+
+    return response;
+}
+
 
 
 
 exports.readInstructionSet = readInstructionSet;
 exports.saveInstructionSet = saveInstructionSet;
+exports.deleteInstructionSet = deleteInstructionSet;
+exports.updateInstructionSet = updateInstructionSet;
 exports.readAllInstructionSets = readAllInstructionSets;

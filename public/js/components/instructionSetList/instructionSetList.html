@@ -5,6 +5,8 @@
         <thead>
             <th>Name</th>
             <th>Instructions</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </thead>
         <tbody>
             <tr ng-repeat="is in $ctrl.instructionSets">
@@ -15,6 +17,12 @@
                     <div ng-repeat="ins in is.instructions" class="instruction">
                         <instruction-view instruction="ins" view="'compact'" />
                     </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-info" ng-click='$ctrl.edit(is)'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click='$ctrl.delete(is)'><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
                 </td>
             </tr>
         </tbody>

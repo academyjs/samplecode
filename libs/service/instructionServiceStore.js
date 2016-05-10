@@ -123,6 +123,24 @@ function readAllInstructionSets() {
     return instructionSets;
 }
 
+/** 
+ * Deletes an exiting InstructionSet
+ * @param  {[type]} id The id of the Instruction Set to delete
+ */
+function deleteInstructionSet(id) {
+    delete store[id];
+}
+
+/** 
+ * Update an existing InstructionSet
+ * @param  {[type]} instructionSet [description]
+ */
+function updateInstructionSet(instructionSet) {
+    store[instructionSet.id] = instructionSet;
+}
 
 exports.saveInstructionSet = saveInstructionSet;
+exports.readInstructionSet = readInstructionSet;
 exports.readAllInstructionSets = readAllInstructionSets;
+exports.deleteInstructionSet = deleteInstructionSet;
+exports.updateInstructionSet = updateInstructionSet;
