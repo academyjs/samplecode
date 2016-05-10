@@ -14,7 +14,7 @@ app.component('instructionSetList', {
             instructionSets: '=instructionSets'
         },
         //Logic for the component
-        controller: function ($uibModal, instructionSetResource, $scope) {
+        controller: function ($uibModal, instructionSetResource, instructionSetExecutionResource, $scope) {
 
             var self = this;
 
@@ -29,6 +29,22 @@ app.component('instructionSetList', {
                 }, function () {
                     $scope.$emit(Events.INSTRUCTION_SET_DELETED, {});
                 }, function () {});
+            };
+
+            /**
+             * Plays an Instruction Set
+             * @param {object} instructionSet The Instruction Set to play
+             */
+            this.play = function (instructionSet) {
+                instructionSetExecutionResource.save({
+                    id: instructionSet.id
+                }, function (response) {
+
+                }, function (response) {
+                    console.log(response.data);
+                });
+
+                $scope.$emit(Events.INSTRUCTION_SET_PLAYED, instructionSet);
             };
 
             /**

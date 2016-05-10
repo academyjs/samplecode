@@ -14,8 +14,8 @@ var instructionTypes = [
 ];
 
 //orb = sphero('\\\\.\\COM22');
-//orb = sphero(process.argv[2]);
-//orb.connect(function () {});
+orb = sphero(process.argv[2]);
+orb.connect(function () {});
 
 /**
  * Executes an Instruction Set

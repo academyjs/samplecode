@@ -5,6 +5,7 @@
         <thead>
             <th>Name</th>
             <th>Instructions</th>
+            <th>Play</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -17,6 +18,9 @@
                     <div ng-repeat="ins in is.instructions" class="instruction">
                         <instruction-view instruction="ins" view="'compact'" />
                     </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" ng-click='$ctrl.play(is)'><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-info" ng-click='$ctrl.edit(is)'><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</button>

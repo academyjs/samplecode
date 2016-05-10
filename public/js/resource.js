@@ -25,3 +25,14 @@ restResources.factory('instructionSetResource',
     }
 
 );
+
+// Define an AngularJS REST Resource for working with Instruction Set Executions
+restResources.factory('instructionSetExecutionResource',
+
+    function ($resource) {
+
+        return $resource('/instructionsetexecution/:id');
+
+    }
+
+);

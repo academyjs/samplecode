@@ -8,6 +8,7 @@
 var store = require('./instructionServiceStore');
 var idHelper = require('./idHelper');
 var instructionSetValidator = require('./instructionSetValidator');
+var spheroController = require('../sphero/spheroController');
 
 /**
  * Reads the instruction set with the given id
@@ -107,11 +108,23 @@ function updateInstructionSet(instructionSet) {
     return response;
 }
 
-
+/**
+ * Executes an Instruciton Set
+ * @param {string} id Executes the Instruction Set
+ */
+function executeInstructionSet(id) {
+    var instructionSet = store.readInstructionSet(id);
+    console.log(id);
+    spheroController.executeInstructionSet(instructionSet);
+    return {
+        "success": "true"
+    };
+}
 
 
 exports.readInstructionSet = readInstructionSet;
 exports.saveInstructionSet = saveInstructionSet;
 exports.deleteInstructionSet = deleteInstructionSet;
 exports.updateInstructionSet = updateInstructionSet;
+exports.executeInstructionSet = executeInstructionSet;
 exports.readAllInstructionSets = readAllInstructionSets;
