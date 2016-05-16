@@ -13,7 +13,7 @@ var app = GLOBAL.app;
 /**
  * Executes an Instruction Set
  */
-app.post('/instructionsetexecution/:id', function (req, res) {
-    var executeInstructionSetResponse = instructionService.executeInstructionSet(req.params.id);
+app.post('/instructionsetexecution', function (req, res) {
+    var executeInstructionSetResponse = instructionService.executeInstructionSet(req.body.id);
     res.status(HTTP_CONSTANTS.SUCCESS).json(executeInstructionSetResponse);
 });
