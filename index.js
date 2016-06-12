@@ -27,7 +27,7 @@ if (!process.argv[2]) {
 // parse application/json
 app.use(bodyParser.json());
 
-var instructionSetResource = require('./libs/rest/InstructionSetResource');
+var instructionSetResource = require('./libs/rest/instructionSetResource');
 var instructionSetExecutionResource = require('./libs/rest/instructionSetExecutionResource');
 
 app.listen(3000, function () {
