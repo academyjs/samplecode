@@ -36,7 +36,7 @@ function readInstructionSet(id) {
  * Reads all the instruction sets
  * @return {Object} object indicating if the read was successful
  */
-function readAllInstructionSets(id) {
+function readAllInstructionSets() {
 
     var response = {};
     var instructionSets = store.readAllInstructionSets();
